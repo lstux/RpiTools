@@ -34,3 +34,5 @@
 #Build directory
 build
 build/*
+images
+images/*
