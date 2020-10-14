@@ -105,6 +105,7 @@ make -C "${QEMU_SRCDIR}" ${MAKEOPTS} || exit 5
 
 #Rename and get static binaries
 make -C "${QEMU_SRCDIR}" install || exit 6
+for b in "${BUILDDIR}/qemu-static/bin/"*; do install -v -m755 "${b}" "${BUILDDIR}/$(basename "${b}")-static"; done && rm -rf "${BUILDDIR}/qemu-static"
 
 #Cleanup sources directory
 rm -rf "${QEMU_SRCDIR}" "${QEMU_LOCALARCH}"
